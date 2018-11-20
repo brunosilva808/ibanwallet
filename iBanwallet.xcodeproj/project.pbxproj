@@ -12,6 +12,7 @@
 		3C042BA321A4BD2700B879B5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C042BA121A4BD2700B879B5 /* Main.storyboard */; };
 		3C042BA521A4BD2900B879B5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C042BA421A4BD2900B879B5 /* Assets.xcassets */; };
 		3C042BA821A4BD2900B879B5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C042BA621A4BD2900B879B5 /* LaunchScreen.storyboard */; };
+		A766B3288C77A642662BF1A5 /* Pods_iBanwallet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45540D9E00E9675ABCAED2FB /* Pods_iBanwallet.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,9 @@
 		3C042BA421A4BD2900B879B5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3C042BA721A4BD2900B879B5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3C042BA921A4BD2900B879B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		45540D9E00E9675ABCAED2FB /* Pods_iBanwallet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iBanwallet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9018DA7919EE88E5EB7AFAF6 /* Pods-iBanwallet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iBanwallet.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iBanwallet/Pods-iBanwallet.debug.xcconfig"; sourceTree = "<group>"; };
+		F5AC1A8553C7DB55FDFBD312 /* Pods-iBanwallet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iBanwallet.release.xcconfig"; path = "Pods/Target Support Files/Pods-iBanwallet/Pods-iBanwallet.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A766B3288C77A642662BF1A5 /* Pods_iBanwallet.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +45,8 @@
 			children = (
 				3C042B9C21A4BD2700B879B5 /* iBanwallet */,
 				3C042B9B21A4BD2700B879B5 /* Products */,
+				C1A190C6885E687E67990905 /* Pods */,
+				A39B2F644E82478740DB89F3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +71,23 @@
 			path = iBanwallet;
 			sourceTree = "<group>";
 		};
+		A39B2F644E82478740DB89F3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				45540D9E00E9675ABCAED2FB /* Pods_iBanwallet.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C1A190C6885E687E67990905 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9018DA7919EE88E5EB7AFAF6 /* Pods-iBanwallet.debug.xcconfig */,
+				F5AC1A8553C7DB55FDFBD312 /* Pods-iBanwallet.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,9 +95,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3C042BAC21A4BD2900B879B5 /* Build configuration list for PBXNativeTarget "iBanwallet" */;
 			buildPhases = (
+				3A1184A8671CE97C622658DB /* [CP] Check Pods Manifest.lock */,
 				3C042B9621A4BD2700B879B5 /* Sources */,
 				3C042B9721A4BD2700B879B5 /* Frameworks */,
 				3C042B9821A4BD2700B879B5 /* Resources */,
+				0C07532AD2B6AD4B6AA28005 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -128,6 +154,53 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0C07532AD2B6AD4B6AA28005 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-iBanwallet/Pods-iBanwallet-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iBanwallet/Pods-iBanwallet-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3A1184A8671CE97C622658DB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-iBanwallet-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3C042B9621A4BD2700B879B5 /* Sources */ = {
@@ -279,6 +352,7 @@
 		};
 		3C042BAD21A4BD2900B879B5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9018DA7919EE88E5EB7AFAF6 /* Pods-iBanwallet.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -296,6 +370,7 @@
 		};
 		3C042BAE21A4BD2900B879B5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F5AC1A8553C7DB55FDFBD312 /* Pods-iBanwallet.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
