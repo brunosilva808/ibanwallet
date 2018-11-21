@@ -10,8 +10,11 @@
 		3C042B9E21A4BD2700B879B5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C042B9D21A4BD2700B879B5 /* AppDelegate.swift */; };
 		3C042BA021A4BD2700B879B5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C042B9F21A4BD2700B879B5 /* ViewController.swift */; };
 		3C042BA521A4BD2900B879B5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C042BA421A4BD2900B879B5 /* Assets.xcassets */; };
+		3C28D40421A608A1007889E2 /* Gist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C28D40321A608A1007889E2 /* Gist.swift */; };
+		3C28D40B21A612A5007889E2 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C28D40A21A612A5007889E2 /* APIClient.swift */; };
 		3CA3A39021A5F5C300CB84A4 /* APIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA3A38F21A5F5C300CB84A4 /* APIRouter.swift */; };
 		3CA3A39321A5F70100CB84A4 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA3A39221A5F70100CB84A4 /* APIConstants.swift */; };
+		3CA9859E21A613AF005CC035 /* APIClient+Gist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA9859D21A613AF005CC035 /* APIClient+Gist.swift */; };
 		A766B3288C77A642662BF1A5 /* Pods_iBanwallet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45540D9E00E9675ABCAED2FB /* Pods_iBanwallet.framework */; };
 /* End PBXBuildFile section */
 
@@ -21,8 +24,11 @@
 		3C042B9F21A4BD2700B879B5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3C042BA421A4BD2900B879B5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3C042BA921A4BD2900B879B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3C28D40321A608A1007889E2 /* Gist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gist.swift; sourceTree = "<group>"; };
+		3C28D40A21A612A5007889E2 /* APIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		3CA3A38F21A5F5C300CB84A4 /* APIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRouter.swift; sourceTree = "<group>"; };
 		3CA3A39221A5F70100CB84A4 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
+		3CA9859D21A613AF005CC035 /* APIClient+Gist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "APIClient+Gist.swift"; sourceTree = "<group>"; };
 		45540D9E00E9675ABCAED2FB /* Pods_iBanwallet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iBanwallet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9018DA7919EE88E5EB7AFAF6 /* Pods-iBanwallet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iBanwallet.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iBanwallet/Pods-iBanwallet.debug.xcconfig"; sourceTree = "<group>"; };
 		F5AC1A8553C7DB55FDFBD312 /* Pods-iBanwallet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iBanwallet.release.xcconfig"; path = "Pods/Target Support Files/Pods-iBanwallet/Pods-iBanwallet.release.xcconfig"; sourceTree = "<group>"; };
@@ -62,12 +68,21 @@
 			isa = PBXGroup;
 			children = (
 				3C042B9D21A4BD2700B879B5 /* AppDelegate.swift */,
+				3C28D40521A608AE007889E2 /* Model */,
 				3CA3A39121A5F60400CB84A4 /* Service */,
 				3CEEA15A21A4CADF007F454E /* Controller */,
 				3CA3A38E21A5F5B000CB84A4 /* Resources */,
 				3C042BA921A4BD2900B879B5 /* Info.plist */,
 			);
 			path = iBanwallet;
+			sourceTree = "<group>";
+		};
+		3C28D40521A608AE007889E2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3C28D40321A608A1007889E2 /* Gist.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		3CA3A38E21A5F5B000CB84A4 /* Resources */ = {
@@ -83,6 +98,8 @@
 			children = (
 				3CA3A38F21A5F5C300CB84A4 /* APIRouter.swift */,
 				3CA3A39221A5F70100CB84A4 /* APIConstants.swift */,
+				3C28D40A21A612A5007889E2 /* APIClient.swift */,
+				3CA9859D21A613AF005CC035 /* APIClient+Gist.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -188,12 +205,16 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-iBanwallet/Pods-iBanwallet-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireObjectMapper/AlamofireObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -230,8 +251,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				3CA3A39321A5F70100CB84A4 /* APIConstants.swift in Sources */,
+				3CA9859E21A613AF005CC035 /* APIClient+Gist.swift in Sources */,
+				3C28D40421A608A1007889E2 /* Gist.swift in Sources */,
 				3C042BA021A4BD2700B879B5 /* ViewController.swift in Sources */,
 				3CA3A39021A5F5C300CB84A4 /* APIRouter.swift in Sources */,
+				3C28D40B21A612A5007889E2 /* APIClient.swift in Sources */,
 				3C042B9E21A4BD2700B879B5 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -362,6 +386,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = iBanwallet/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -380,6 +405,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = iBanwallet/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
