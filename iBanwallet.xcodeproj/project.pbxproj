@@ -9,9 +9,9 @@
 /* Begin PBXBuildFile section */
 		3C042B9E21A4BD2700B879B5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C042B9D21A4BD2700B879B5 /* AppDelegate.swift */; };
 		3C042BA021A4BD2700B879B5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C042B9F21A4BD2700B879B5 /* ViewController.swift */; };
-		3C042BA321A4BD2700B879B5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C042BA121A4BD2700B879B5 /* Main.storyboard */; };
 		3C042BA521A4BD2900B879B5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C042BA421A4BD2900B879B5 /* Assets.xcassets */; };
-		3C042BA821A4BD2900B879B5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C042BA621A4BD2900B879B5 /* LaunchScreen.storyboard */; };
+		3CA3A39021A5F5C300CB84A4 /* APIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA3A38F21A5F5C300CB84A4 /* APIRouter.swift */; };
+		3CA3A39321A5F70100CB84A4 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA3A39221A5F70100CB84A4 /* APIConstants.swift */; };
 		A766B3288C77A642662BF1A5 /* Pods_iBanwallet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45540D9E00E9675ABCAED2FB /* Pods_iBanwallet.framework */; };
 /* End PBXBuildFile section */
 
@@ -19,10 +19,10 @@
 		3C042B9A21A4BD2700B879B5 /* iBanwallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iBanwallet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C042B9D21A4BD2700B879B5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3C042B9F21A4BD2700B879B5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		3C042BA221A4BD2700B879B5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3C042BA421A4BD2900B879B5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		3C042BA721A4BD2900B879B5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3C042BA921A4BD2900B879B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3CA3A38F21A5F5C300CB84A4 /* APIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRouter.swift; sourceTree = "<group>"; };
+		3CA3A39221A5F70100CB84A4 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
 		45540D9E00E9675ABCAED2FB /* Pods_iBanwallet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iBanwallet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9018DA7919EE88E5EB7AFAF6 /* Pods-iBanwallet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iBanwallet.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iBanwallet/Pods-iBanwallet.debug.xcconfig"; sourceTree = "<group>"; };
 		F5AC1A8553C7DB55FDFBD312 /* Pods-iBanwallet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iBanwallet.release.xcconfig"; path = "Pods/Target Support Files/Pods-iBanwallet/Pods-iBanwallet.release.xcconfig"; sourceTree = "<group>"; };
@@ -62,13 +62,37 @@
 			isa = PBXGroup;
 			children = (
 				3C042B9D21A4BD2700B879B5 /* AppDelegate.swift */,
-				3C042B9F21A4BD2700B879B5 /* ViewController.swift */,
-				3C042BA121A4BD2700B879B5 /* Main.storyboard */,
-				3C042BA421A4BD2900B879B5 /* Assets.xcassets */,
-				3C042BA621A4BD2900B879B5 /* LaunchScreen.storyboard */,
+				3CA3A39121A5F60400CB84A4 /* Service */,
+				3CEEA15A21A4CADF007F454E /* Controller */,
+				3CA3A38E21A5F5B000CB84A4 /* Resources */,
 				3C042BA921A4BD2900B879B5 /* Info.plist */,
 			);
 			path = iBanwallet;
+			sourceTree = "<group>";
+		};
+		3CA3A38E21A5F5B000CB84A4 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3C042BA421A4BD2900B879B5 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		3CA3A39121A5F60400CB84A4 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				3CA3A38F21A5F5C300CB84A4 /* APIRouter.swift */,
+				3CA3A39221A5F70100CB84A4 /* APIConstants.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		3CEEA15A21A4CADF007F454E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3C042B9F21A4BD2700B879B5 /* ViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		A39B2F644E82478740DB89F3 /* Frameworks */ = {
@@ -147,9 +171,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3C042BA821A4BD2900B879B5 /* LaunchScreen.storyboard in Resources */,
 				3C042BA521A4BD2900B879B5 /* Assets.xcassets in Resources */,
-				3C042BA321A4BD2700B879B5 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -207,31 +229,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3CA3A39321A5F70100CB84A4 /* APIConstants.swift in Sources */,
 				3C042BA021A4BD2700B879B5 /* ViewController.swift in Sources */,
+				3CA3A39021A5F5C300CB84A4 /* APIRouter.swift in Sources */,
 				3C042B9E21A4BD2700B879B5 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		3C042BA121A4BD2700B879B5 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3C042BA221A4BD2700B879B5 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		3C042BA621A4BD2900B879B5 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3C042BA721A4BD2900B879B5 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		3C042BAA21A4BD2900B879B5 /* Debug */ = {
