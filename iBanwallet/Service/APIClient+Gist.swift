@@ -10,12 +10,12 @@ import Alamofire
 import ObjectMapper
 import AlamofireObjectMapper
 
-typealias ResponseArrayCallback<T> = ([T]) -> ()
-typealias ResponseErrorCallback = (Error) -> ()
+typealias APISuccessArrayCallback<T> = ([T]) -> ()
+typealias APIErrorCallback = (Error) -> ()
 
 extension APIClient {
     
-    static func getGists(successBlock: @escaping ResponseArrayCallback<Gist>, errorBlock: @escaping ResponseErrorCallback) {
+    static func getGists(successBlock: @escaping APISuccessArrayCallback<Gist>, errorBlock: @escaping APIErrorCallback) {
         
         Alamofire.request(APIRouter.gists).validate().responseArray { (response: DataResponse<[Gist]>) in
             switch response.result {
@@ -27,4 +27,23 @@ extension APIClient {
             }
         }
     }
+    
+    static func getComics(onSuccess: @escaping APISuccessArrayCallback<Gist>, onError: @escaping APIErrorCallback) {
+        
+        URLSession.shared.dataTask(with: (APIRouter.gists.urlRequest?.url)!) { (data, response, error) in
+            guard let data = data else { return }
+            let comics = try? JSONDecoder().decode([Swifter].self, from: data)
+            
+//            switch comics?.code {
+//            case 200:
+//                onSuccess(gists!)
+//                break
+//            default:
+//                onError()
+//                break;
+//            }
+            
+            }.resume()
+    }
+    
 }

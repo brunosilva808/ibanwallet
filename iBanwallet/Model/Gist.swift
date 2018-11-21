@@ -6,6 +6,12 @@
 import Foundation
 import ObjectMapper
 
+struct Swifter: Decodable {
+    let url: String
+    let forks_url: String
+}
+
+
 class Gist : Mappable {
     required init?(map: Map) {
         
@@ -32,6 +38,7 @@ class Gist : Mappable {
     var updatedAt : String!
     var url : String!
     var user : AnyObject!
+    
     
     
     /**

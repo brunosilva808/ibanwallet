@@ -18,6 +18,12 @@ class ViewController: UIViewController {
             print(error)
         }
         
+        APIClient.getComics(onSuccess: { (response) in
+            
+        }) { (error) in
+            
+        }
+        
     }
 
 
