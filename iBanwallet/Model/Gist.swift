@@ -7,8 +7,48 @@
 
 import Foundation
 import ObjectMapper
+import RealmSwift
 
-public struct Gist: Mappable {
+class GistDec: Decodable {
+    let forksUrl: String
+    let gitPullUrl: String
+    let htmlUrl: String
+    
+    enum CodingKeys: String, CodingKey {
+        case forksUrl = "forks_url"
+        case gitPullUrl = "git_pull_url"
+        case htmlUrl = "html_url"
+    }
+}
+
+class Gist1: Object, Mappable {
+    
+    // MARK: Properties
+    @objc dynamic var forksUrl: String?
+    @objc dynamic var id = 0
+    @objc dynamic var title = ""
+    @objc dynamic var autor = ""
+    @objc dynamic var genre = ""
+    
+    override static func primaryKey() -> String? {
+        return "id"
+    }
+    
+    //Impl. of Mappable protocol
+    required convenience init?(map: Map) {
+        self.init()
+    }
+    
+    func mapping(map: Map) {
+        forksUrl    <- map["forks"]
+        id          <- map["id"]
+        title       <- map["title"]
+        autor       <- map["autor"]
+        genre       <- map["genre"]
+    }
+}
+
+class Gist: Object, Mappable {
     
     // MARK: Declaration for string constants to be used to decode and also serialize.
     private struct SerializationKeys {
@@ -32,34 +72,34 @@ public struct Gist: Mappable {
     }
     
     // MARK: Properties
-    public var forksUrl: String?
-    public var gitPullUrl: String?
-    public var htmlUrl: String?
-    public var updatedAt: String?
-    public var gitPushUrl: String?
-    public var descriptionValue: String?
-    public var commitsUrl: String?
-    public var id: String?
-    public var createdAt: String?
-    public var comments: Int?
-    public var truncated: Bool? = false
-    public var commentsUrl: String?
-    public var nodeId: String?
-    public var url: String?
-    public var publicAttribute: Bool? = false
+    @objc dynamic  var forksUrl: String?
+    @objc dynamic  var gitPullUrl: String?
+    @objc dynamic  var htmlUrl: String?
+    @objc dynamic  var updatedAt: String?
+    @objc dynamic  var gitPushUrl: String?
+    @objc dynamic  var descriptionValue: String?
+    @objc dynamic  var commitsUrl: String?
+    @objc dynamic  var id: String?
+    @objc dynamic  var createdAt: String?
+    @objc dynamic  var comments: Int = 0
+    @objc dynamic  var truncated: Bool = false
+    @objc dynamic  var commentsUrl: String?
+    @objc dynamic  var nodeId: String?
+    @objc dynamic  var url: String?
+    @objc dynamic  var publicAttribute: Bool = false
     
     // MARK: ObjectMapper Initializers
     /// Map a JSON object to this class using ObjectMapper.
     ///
     /// - parameter map: A mapping from ObjectMapper.
-    public init?(map: Map){
-        
+    required convenience init?(map: Map) {
+        self.init()
     }
     
     /// Map a JSON object to this class using ObjectMapper.
     ///
     /// - parameter map: A mapping from ObjectMapper.
-    public mutating func mapping(map: Map) {
+    func mapping(map: Map) {
         forksUrl <- map[SerializationKeys.forksUrl]
         gitPullUrl <- map[SerializationKeys.gitPullUrl]
         htmlUrl <- map[SerializationKeys.htmlUrl]
@@ -91,7 +131,7 @@ public struct Gist: Mappable {
         if let value = commitsUrl { dictionary[SerializationKeys.commitsUrl] = value }
         if let value = id { dictionary[SerializationKeys.id] = value }
         if let value = createdAt { dictionary[SerializationKeys.createdAt] = value }
-        if let value = comments { dictionary[SerializationKeys.comments] = value }
+        dictionary[SerializationKeys.comments] = comments
         dictionary[SerializationKeys.truncated] = truncated
         if let value = commentsUrl { dictionary[SerializationKeys.commentsUrl] = value }
         if let value = nodeId { dictionary[SerializationKeys.nodeId] = value }

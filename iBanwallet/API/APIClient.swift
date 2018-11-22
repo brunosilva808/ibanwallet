@@ -8,7 +8,7 @@
 
 import Foundation
 import Alamofire
-import ObjectMapper
+import RealmSwift
 
 enum WSEndpoint:URLRequestConvertible {
     
@@ -67,5 +67,11 @@ enum WSEndpoint:URLRequestConvertible {
 
 class APIClient {
     
-//    static let sharedInstance = APIClient()
+    static let shared = APIClient()
+    let realmManager: RealmManager
+    
+    private init() {
+        realmManager = RealmManager()
+    }
+
 }

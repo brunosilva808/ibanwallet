@@ -9,5 +9,6 @@ target 'iBanwallet' do
     pod 'Alamofire'
     pod 'ObjectMapper'
     pod 'AlamofireObjectMapper'
+    pod 'RealmSwift'
 
 end
