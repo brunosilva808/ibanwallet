@@ -1,122 +1,102 @@
 //
 //  Gist.swift
-//  Model Generated using http://www.jsoncafe.com/
-//  Created on November 21, 2018
+//  iBanwallet
+//
+//  Created by Bruno Silva on 21/11/2018.
+//
 
 import Foundation
 import ObjectMapper
 
-struct Swifter: Decodable {
-    let url: String
-    let forks_url: String
-}
-
-
-class Gist : Mappable {
-    required init?(map: Map) {
+public struct Gist: Mappable {
+    
+    // MARK: Declaration for string constants to be used to decode and also serialize.
+    private struct SerializationKeys {
+        static let forksUrl = "forks_url"
+        static let gitPullUrl = "git_pull_url"
+        static let htmlUrl = "html_url"
+        static let updatedAt = "updated_at"
+        static let gitPushUrl = "git_push_url"
+        static let descriptionValue = "description"
+        static let commitsUrl = "commits_url"
+        static let files = "files"
+        static let id = "id"
+        static let createdAt = "created_at"
+        static let comments = "comments"
+        static let owner = "owner"
+        static let truncated = "truncated"
+        static let commentsUrl = "comments_url"
+        static let nodeId = "node_id"
+        static let url = "url"
+        static let publicAttribute = "public"
+    }
+    
+    // MARK: Properties
+    public var forksUrl: String?
+    public var gitPullUrl: String?
+    public var htmlUrl: String?
+    public var updatedAt: String?
+    public var gitPushUrl: String?
+    public var descriptionValue: String?
+    public var commitsUrl: String?
+    public var id: String?
+    public var createdAt: String?
+    public var comments: Int?
+    public var truncated: Bool? = false
+    public var commentsUrl: String?
+    public var nodeId: String?
+    public var url: String?
+    public var publicAttribute: Bool? = false
+    
+    // MARK: ObjectMapper Initializers
+    /// Map a JSON object to this class using ObjectMapper.
+    ///
+    /// - parameter map: A mapping from ObjectMapper.
+    public init?(map: Map){
         
     }
     
-    func mapping(map: Map) {
-    
+    /// Map a JSON object to this class using ObjectMapper.
+    ///
+    /// - parameter map: A mapping from ObjectMapper.
+    public mutating func mapping(map: Map) {
+        forksUrl <- map[SerializationKeys.forksUrl]
+        gitPullUrl <- map[SerializationKeys.gitPullUrl]
+        htmlUrl <- map[SerializationKeys.htmlUrl]
+        updatedAt <- map[SerializationKeys.updatedAt]
+        gitPushUrl <- map[SerializationKeys.gitPushUrl]
+        descriptionValue <- map[SerializationKeys.descriptionValue]
+        commitsUrl <- map[SerializationKeys.commitsUrl]
+        id <- map[SerializationKeys.id]
+        createdAt <- map[SerializationKeys.createdAt]
+        comments <- map[SerializationKeys.comments]
+        truncated <- map[SerializationKeys.truncated]
+        commentsUrl <- map[SerializationKeys.commentsUrl]
+        nodeId <- map[SerializationKeys.nodeId]
+        url <- map[SerializationKeys.url]
+        publicAttribute <- map[SerializationKeys.publicAttribute]
     }
     
-    
-    var comments : Int!
-    var commentsUrl : String!
-    var commitsUrl : String!
-    var createdAt : String!
-    var descriptionField : String!
-    var forksUrl : String!
-    var gitPullUrl : String!
-    var gitPushUrl : String!
-    var htmlUrl : String!
-    var id : String!
-    var nodeId : String!
-    var publicField : Bool!
-    var truncated : Bool!
-    var updatedAt : String!
-    var url : String!
-    var user : AnyObject!
-    
-    
-    
-    /**
-     * Instantiate the instance using the passed dictionary values to set the properties values
-     */
-    init(fromDictionary dictionary: [String:Any]){
-        comments = dictionary["comments"] as? Int
-        commentsUrl = dictionary["comments_url"] as? String
-        commitsUrl = dictionary["commits_url"] as? String
-        createdAt = dictionary["created_at"] as? String
-        descriptionField = dictionary["description"] as? String
-        forksUrl = dictionary["forks_url"] as? String
-        gitPullUrl = dictionary["git_pull_url"] as? String
-        gitPushUrl = dictionary["git_push_url"] as? String
-        htmlUrl = dictionary["html_url"] as? String
-        id = dictionary["id"] as? String
-        nodeId = dictionary["node_id"] as? String
-        publicField = dictionary["public"] as? Bool
-        truncated = dictionary["truncated"] as? Bool
-        updatedAt = dictionary["updated_at"] as? String
-        url = dictionary["url"] as? String
-        user = dictionary["user"] as? AnyObject
-    }
-    
-    /**
-     * Returns all the available property values in the form of [String:Any] object where the key is the approperiate json key and the value is the value of the corresponding property
-     */
-    func toDictionary() -> [String:Any]
-    {
-        var dictionary = [String:Any]()
-        if comments != nil{
-            dictionary["comments"] = comments
-        }
-        if commentsUrl != nil{
-            dictionary["comments_url"] = commentsUrl
-        }
-        if commitsUrl != nil{
-            dictionary["commits_url"] = commitsUrl
-        }
-        if createdAt != nil{
-            dictionary["created_at"] = createdAt
-        }
-        if descriptionField != nil{
-            dictionary["description"] = descriptionField
-        }
-        if forksUrl != nil{
-            dictionary["forks_url"] = forksUrl
-        }
-        if gitPullUrl != nil{
-            dictionary["git_pull_url"] = gitPullUrl
-        }
-        if gitPushUrl != nil{
-            dictionary["git_push_url"] = gitPushUrl
-        }
-        if htmlUrl != nil{
-            dictionary["html_url"] = htmlUrl
-        }
-        if id != nil{
-            dictionary["id"] = id
-        }
-        if nodeId != nil{
-            dictionary["node_id"] = nodeId
-        }
-        if publicField != nil{
-            dictionary["public"] = publicField
-        }
-        if truncated != nil{
-            dictionary["truncated"] = truncated
-        }
-        if updatedAt != nil{
-            dictionary["updated_at"] = updatedAt
-        }
-        if url != nil{
-            dictionary["url"] = url
-        }
-        if user != nil{
-            dictionary["user"] = user
-        }
+    /// Generates description of the object in the form of a NSDictionary.
+    ///
+    /// - returns: A Key value pair containing all valid values in the object.
+    public func dictionaryRepresentation() -> [String: Any] {
+        var dictionary: [String: Any] = [:]
+        if let value = forksUrl { dictionary[SerializationKeys.forksUrl] = value }
+        if let value = gitPullUrl { dictionary[SerializationKeys.gitPullUrl] = value }
+        if let value = htmlUrl { dictionary[SerializationKeys.htmlUrl] = value }
+        if let value = updatedAt { dictionary[SerializationKeys.updatedAt] = value }
+        if let value = gitPushUrl { dictionary[SerializationKeys.gitPushUrl] = value }
+        if let value = descriptionValue { dictionary[SerializationKeys.descriptionValue] = value }
+        if let value = commitsUrl { dictionary[SerializationKeys.commitsUrl] = value }
+        if let value = id { dictionary[SerializationKeys.id] = value }
+        if let value = createdAt { dictionary[SerializationKeys.createdAt] = value }
+        if let value = comments { dictionary[SerializationKeys.comments] = value }
+        dictionary[SerializationKeys.truncated] = truncated
+        if let value = commentsUrl { dictionary[SerializationKeys.commentsUrl] = value }
+        if let value = nodeId { dictionary[SerializationKeys.nodeId] = value }
+        if let value = url { dictionary[SerializationKeys.url] = value }
+        dictionary[SerializationKeys.publicAttribute] = publicAttribute
         return dictionary
     }
     

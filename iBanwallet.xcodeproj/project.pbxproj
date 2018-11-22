@@ -69,10 +69,10 @@
 			children = (
 				3C042B9D21A4BD2700B879B5 /* AppDelegate.swift */,
 				3C28D40521A608AE007889E2 /* Model */,
-				3CA3A39121A5F60400CB84A4 /* Service */,
 				3CEEA15A21A4CADF007F454E /* Controller */,
+				3CA3A39121A5F60400CB84A4 /* API */,
 				3CA3A38E21A5F5B000CB84A4 /* Resources */,
-				3C042BA921A4BD2900B879B5 /* Info.plist */,
+				3CA985A721A628B3005CC035 /* Supporting Files */,
 			);
 			path = iBanwallet;
 			sourceTree = "<group>";
@@ -93,7 +93,7 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		3CA3A39121A5F60400CB84A4 /* Service */ = {
+		3CA3A39121A5F60400CB84A4 /* API */ = {
 			isa = PBXGroup;
 			children = (
 				3CA3A38F21A5F5C300CB84A4 /* APIRouter.swift */,
@@ -101,7 +101,15 @@
 				3C28D40A21A612A5007889E2 /* APIClient.swift */,
 				3CA9859D21A613AF005CC035 /* APIClient+Gist.swift */,
 			);
-			path = Service;
+			path = API;
+			sourceTree = "<group>";
+		};
+		3CA985A721A628B3005CC035 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3C042BA921A4BD2900B879B5 /* Info.plist */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		3CEEA15A21A4CADF007F454E /* Controller */ = {
@@ -385,7 +393,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = iBanwallet/Info.plist;
+				INFOPLIST_FILE = "iBanwallet/Supporting files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -404,7 +412,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = iBanwallet/Info.plist;
+				INFOPLIST_FILE = "iBanwallet/Supporting files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

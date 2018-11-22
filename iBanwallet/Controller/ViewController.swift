@@ -7,21 +7,17 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.backgroundColor = .red
         
         APIClient.getGists(successBlock: { (response) in
             print(response)
         }) { (error) in
             print(error)
-        }
-        
-        APIClient.getComics(onSuccess: { (response) in
-            
-        }) { (error) in
-            
         }
         
     }

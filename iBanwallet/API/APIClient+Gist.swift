@@ -26,24 +26,7 @@ extension APIClient {
                 successBlock(value)
             }
         }
-    }
-    
-    static func getComics(onSuccess: @escaping APISuccessArrayCallback<Gist>, onError: @escaping APIErrorCallback) {
         
-        URLSession.shared.dataTask(with: (APIRouter.gists.urlRequest?.url)!) { (data, response, error) in
-            guard let data = data else { return }
-            let comics = try? JSONDecoder().decode([Swifter].self, from: data)
-            
-//            switch comics?.code {
-//            case 200:
-//                onSuccess(gists!)
-//                break
-//            default:
-//                onError()
-//                break;
-//            }
-            
-            }.resume()
     }
     
 }
