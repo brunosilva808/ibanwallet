@@ -8,21 +8,15 @@
 import UIKit
 import Cartography
 import Kingfisher
-
-protocol CustomCellProtocol {
-    func imageDownloadSucces(indexPath: IndexPath)
-}
-
 class CustomCell: UITableViewCell, ModelPresenterCell {
 
     let imageIcon: UIImageView = {
-        var image = UIImageView(image: UIImage(named: "placeholder"))
+        var image = UIImageView()
         image.contentMode = .scaleAspectFit
         return image
     }()
     let labelTitle: UILabel = {
         let label = UILabel()
-        label.numberOfLines = 1
         return label
     }()
     let labelDescription: UILabel = {
@@ -32,8 +26,6 @@ class CustomCell: UITableViewCell, ModelPresenterCell {
         return label
     }()
     
-    var delegate: CustomCellProtocol?
-    var indexPath: IndexPath!
     var model: RealmGist? {
         didSet {
             guard let model = self.model else {
@@ -43,11 +35,7 @@ class CustomCell: UITableViewCell, ModelPresenterCell {
             labelTitle.text = model.owner?.login
             labelDescription.text = model.descriptionValue
             if let urlString = model.owner?.avatarUrl {
-                imageIcon.kf.setImage(with: URL(string: urlString), placeholder: UIImage(named: "placeholder"), options: nil, progressBlock: nil) { [weak self] (image, _, _, _) in
-                    if let indexPath = self?.indexPath {
-                        self?.delegate?.imageDownloadSucces(indexPath: indexPath)
-                    }
-                }
+                imageIcon.kf.setImage(with: URL(string: urlString))
             }
         }
     }
@@ -71,27 +59,31 @@ class CustomCell: UITableViewCell, ModelPresenterCell {
     
     func setupConstraints() {
         
+        let marginLeftRight:CGFloat = 16
+        let marginTopBottom:CGFloat = 10
+        
         constrain(imageIcon, self) { imageView, view in
-            imageView.top == view.top + 10
-            imageView.left == view.left + 16
-            imageView.bottom == view.bottom - 5 ~ LayoutPriority(rawValue: 250)
+            imageView.top == view.top + marginTopBottom
+            imageView.left == view.left + marginLeftRight
+            imageView.bottom == view.bottom - marginTopBottom / 2 ~ LayoutPriority(rawValue: 250)
             imageView.width == 40
             imageView.height == 40
         }
         
         constrain(labelTitle, imageIcon, self) { label, imageView, view in
-            label.top == view.top + 10
-            label.left == imageView.right + 16
-            label.right == view.right - 16
+            label.top == view.top + marginTopBottom / 2
+            label.left == imageView.right + marginLeftRight
+            label.right == view.right - marginLeftRight
         }
         
         constrain(labelTitle, labelDescription, imageIcon, self) { title, description, imageView, view in
             description.height >= 21
-            description.top == title.bottom + 10
-            description.left == imageView.right + 16
-            description.right == view.right - 16
-            description.bottom == view.bottom - 5
+            description.top == title.bottom + marginTopBottom
+            description.left == imageView.right + marginLeftRight
+            description.right == view.right - marginLeftRight
+            description.bottom == view.bottom - marginTopBottom / 2
         }
+        
     }
 
 }
