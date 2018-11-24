@@ -25,13 +25,11 @@ class ViewController: UITableViewController {
     }
 
     func getGists() {
-        APIClient.shared.getGists(successBlock: { [weak self] (response) in
+        APIClient.shared.getGists { [weak self] (response) in
             self?.gists = response
             DispatchQueue.main.async {
                 self?.tableView.reloadData()
             }
-        }) { (error) in
-            print(error)
         }
     }
 
@@ -45,16 +43,8 @@ extension ViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: CustomCell = tableView.reusableCell(for: indexPath, with: gists[indexPath.row])
-        cell.indexPath = indexPath
+//        cell.indexPath = indexPath
         return cell
     }
     
-}
-
-extension ViewController: CustomCellProtocol {
-    func imageDownloadSucces(indexPath: IndexPath) {
-        self.tableView.beginUpdates()
-        self.tableView.reloadRows(at: [indexPath], with: .none)
-        self.tableView.endUpdates()
-    }
 }

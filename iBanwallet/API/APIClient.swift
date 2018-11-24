@@ -68,10 +68,10 @@ enum WSEndpoint:URLRequestConvertible {
 class APIClient {
     
     static let shared = APIClient()
-    let realmManager: RealmManager
+    let realmManager: PersistanceManager!
     
     private init() {
-        realmManager = RealmManager()
+        realmManager = PersistanceManager()
     }
 
 }
