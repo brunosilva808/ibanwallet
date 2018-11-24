@@ -3,7 +3,7 @@
 //  SmartDrive
 //
 //  Created by Artem Umanets on 14/11/2018.
-//  Copyright © 2018 Carbon by Bold. All rights reserved.
+//  Copyright © 2018 Bruno Silva by Bold. All rights reserved.
 //
 
 import Foundation

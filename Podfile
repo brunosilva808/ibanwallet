@@ -10,5 +10,6 @@ target 'iBanwallet' do
     pod 'ObjectMapper'
     pod 'AlamofireObjectMapper'
     pod 'RealmSwift'
+    pod 'Cartography', '~> 3.0'
 
 end

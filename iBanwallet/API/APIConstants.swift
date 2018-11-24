@@ -2,7 +2,7 @@
 //  APIConstants.swift
 //  iBanwallet
 //
-//  Created by Carbon on 21/11/2018.
+//  Created by Bruno Silva on 21/11/2018.
 //
 
 import Foundation

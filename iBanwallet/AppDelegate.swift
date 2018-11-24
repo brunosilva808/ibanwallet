@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  iBanwallet
 //
-//  Created by Carbon on 20/11/2018.
+//  Created by Bruno Silva on 20/11/2018.
 //
 
 import UIKit

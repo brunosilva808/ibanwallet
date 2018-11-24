@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  iBanwallet
 //
-//  Created by Carbon on 20/11/2018.
+//  Created by Bruno Silva on 20/11/2018.
 //
 
 import UIKit
@@ -14,12 +14,17 @@ class ViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setupTableView()
         getGists()
-        tableView.register(CustomCell.self)
+    }
+    
+    func setupTableView() {
+        self.tableView.register(CustomCell.self)
+        self.tableView.sectionHeaderHeight = UITableView.automaticDimension
+        self.tableView.estimatedRowHeight = 44.0
     }
 
     func getGists() {
-        
         APIClient.shared.getGists(successBlock: { [weak self] (response) in
             self?.gists = response
             DispatchQueue.main.async {

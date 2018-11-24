@@ -30,10 +30,6 @@ class Gist1: Object, Mappable {
     @objc dynamic var autor = ""
     @objc dynamic var genre = ""
     
-    override static func primaryKey() -> String? {
-        return "id"
-    }
-    
     //Impl. of Mappable protocol
     required convenience init?(map: Map) {
         self.init()
