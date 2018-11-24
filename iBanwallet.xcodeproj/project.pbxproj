@@ -14,7 +14,7 @@
 		3C28D40421A608A1007889E2 /* RealmGist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C28D40321A608A1007889E2 /* RealmGist.swift */; };
 		3C28D40B21A612A5007889E2 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C28D40A21A612A5007889E2 /* APIClient.swift */; };
 		3C2B250321A96C5700445FAC /* RealmOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2B250221A96C5700445FAC /* RealmOwner.swift */; };
-		3C2B250521A9AB0F00445FAC /* CustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C2B250421A9AB0F00445FAC /* CustomCell.xib */; };
+		3C2B250721A9BA8E00445FAC /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2B250621A9BA8E00445FAC /* DetailViewController.swift */; };
 		3CA3A39021A5F5C300CB84A4 /* APIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA3A38F21A5F5C300CB84A4 /* APIRouter.swift */; };
 		3CA3A39321A5F70100CB84A4 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA3A39221A5F70100CB84A4 /* APIConstants.swift */; };
 		3CA9859E21A613AF005CC035 /* APIClient+Gist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA9859D21A613AF005CC035 /* APIClient+Gist.swift */; };
@@ -42,7 +42,7 @@
 		7E770BC921A73C3E000939AA /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E770BB221A73C3D000939AA /* UIImage+Extensions.swift */; };
 		7E770BCA21A73C3E000939AA /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E770BB321A73C3D000939AA /* String+Extensions.swift */; };
 		7E770BCC21A73CF5000939AA /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E770BCB21A73CF5000939AA /* Theme.swift */; };
-		7E770BCF21A7403B000939AA /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E770BCE21A7403B000939AA /* RealmManager.swift */; };
+		7E770BCF21A7403B000939AA /* PersistanceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E770BCE21A7403B000939AA /* PersistanceManager.swift */; };
 		A766B3288C77A642662BF1A5 /* Pods_iBanwallet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45540D9E00E9675ABCAED2FB /* Pods_iBanwallet.framework */; };
 /* End PBXBuildFile section */
 
@@ -56,7 +56,7 @@
 		3C28D40321A608A1007889E2 /* RealmGist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmGist.swift; sourceTree = "<group>"; };
 		3C28D40A21A612A5007889E2 /* APIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		3C2B250221A96C5700445FAC /* RealmOwner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmOwner.swift; sourceTree = "<group>"; };
-		3C2B250421A9AB0F00445FAC /* CustomCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomCell.xib; sourceTree = "<group>"; };
+		3C2B250621A9BA8E00445FAC /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		3CA3A38F21A5F5C300CB84A4 /* APIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRouter.swift; sourceTree = "<group>"; };
 		3CA3A39221A5F70100CB84A4 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
 		3CA9859D21A613AF005CC035 /* APIClient+Gist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "APIClient+Gist.swift"; sourceTree = "<group>"; };
@@ -85,7 +85,7 @@
 		7E770BB221A73C3D000939AA /* UIImage+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 		7E770BB321A73C3D000939AA /* String+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		7E770BCB21A73CF5000939AA /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
-		7E770BCE21A7403B000939AA /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
+		7E770BCE21A7403B000939AA /* PersistanceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistanceManager.swift; sourceTree = "<group>"; };
 		9018DA7919EE88E5EB7AFAF6 /* Pods-iBanwallet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iBanwallet.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iBanwallet/Pods-iBanwallet.debug.xcconfig"; sourceTree = "<group>"; };
 		F5AC1A8553C7DB55FDFBD312 /* Pods-iBanwallet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iBanwallet.release.xcconfig"; path = "Pods/Target Support Files/Pods-iBanwallet/Pods-iBanwallet.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -144,6 +144,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		3C2B250821A9BB2B00445FAC /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				7E770BCE21A7403B000939AA /* PersistanceManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
 		3CA3A38E21A5F5B000CB84A4 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -159,7 +167,6 @@
 				3CA3A39221A5F70100CB84A4 /* APIConstants.swift */,
 				3C28D40A21A612A5007889E2 /* APIClient.swift */,
 				3CA9859D21A613AF005CC035 /* APIClient+Gist.swift */,
-				7E770BCE21A7403B000939AA /* RealmManager.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -176,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				3C042B9F21A4BD2700B879B5 /* ViewController.swift */,
+				3C2B250621A9BA8E00445FAC /* DetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -184,7 +192,6 @@
 			isa = PBXGroup;
 			children = (
 				7E770B9621A73A3B000939AA /* CustomCell.swift */,
-				3C2B250421A9AB0F00445FAC /* CustomCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -192,6 +199,7 @@
 		7E770B9B21A73AE3000939AA /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				3C2B250821A9BB2B00445FAC /* Manager */,
 				7E770BCD21A73CF8000939AA /* Utils */,
 				7E770B9C21A73AEE000939AA /* Extensions */,
 			);
@@ -312,7 +320,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3C2B250521A9AB0F00445FAC /* CustomCell.xib in Resources */,
 				3C042BA521A4BD2900B879B5 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -385,7 +392,7 @@
 			files = (
 				7E770BBD21A73C3E000939AA /* UIViewController+UINib.swift in Sources */,
 				7E770BBF21A73C3E000939AA /* UIButton+Extensions.swift in Sources */,
-				7E770BCF21A7403B000939AA /* RealmManager.swift in Sources */,
+				7E770BCF21A7403B000939AA /* PersistanceManager.swift in Sources */,
 				7E770BC821A73C3E000939AA /* UICollectionView+Extensions.swift in Sources */,
 				7E770BB521A73C3E000939AA /* NumberFormatter+Utils.swift in Sources */,
 				7E770BCA21A73C3E000939AA /* String+Extensions.swift in Sources */,
@@ -410,6 +417,7 @@
 				3C28D40B21A612A5007889E2 /* APIClient.swift in Sources */,
 				7E770BC921A73C3E000939AA /* UIImage+Extensions.swift in Sources */,
 				7E770BCC21A73CF5000939AA /* Theme.swift in Sources */,
+				3C2B250721A9BA8E00445FAC /* DetailViewController.swift in Sources */,
 				7E770BBA21A73C3E000939AA /* UIDevice+Extensions.swift in Sources */,
 				7E770BC221A73C3E000939AA /* Double+Extension.swift in Sources */,
 				7E770BBC21A73C3E000939AA /* UITextField+Extensions.swift in Sources */,

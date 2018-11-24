@@ -8,6 +8,7 @@
 import UIKit
 import Cartography
 import Kingfisher
+
 class CustomCell: UITableViewCell, ModelPresenterCell {
 
     let imageIcon: UIImageView = {
@@ -35,7 +36,10 @@ class CustomCell: UITableViewCell, ModelPresenterCell {
             labelTitle.text = model.owner?.login
             labelDescription.text = model.descriptionValue
             if let urlString = model.owner?.avatarUrl {
-                imageIcon.kf.setImage(with: URL(string: urlString))
+                imageIcon.kf.setImage(with: URL(string: urlString), placeholder: Image(named: "placeholder"), options: nil, progressBlock: nil) { [weak self] (_, _, _, _) in
+                    self?.imageIcon.setRounded(toRadius: 5)
+                }
+                
             }
         }
     }
@@ -61,7 +65,7 @@ class CustomCell: UITableViewCell, ModelPresenterCell {
         
         let marginLeftRight:CGFloat = 16
         let marginTopBottom:CGFloat = 10
-        
+                
         constrain(imageIcon, self) { imageView, view in
             imageView.top == view.top + marginTopBottom
             imageView.left == view.left + marginLeftRight

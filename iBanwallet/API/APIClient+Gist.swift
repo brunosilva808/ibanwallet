@@ -10,22 +10,21 @@ import Alamofire
 import AlamofireObjectMapper
 import RealmSwift
 
-typealias APISuccessArrayCallback<T> = ([T]) -> ()
-typealias APIErrorCallback = (Error) -> ()
+typealias APIArrayCallback<T> = ([T]) -> ()
 
 extension APIClient {
 
-    func getGists(successBlock: @escaping APISuccessArrayCallback<RealmGist>, errorBlock: @escaping APIErrorCallback) {
+    func getGists(completion: @escaping APIArrayCallback<RealmGist>) {
         
         Alamofire.request(APIRouter.gists).validate().responseArray { [weak self] (response: DataResponse<[RealmGist]>) in
             switch response.result {
-            case .failure(let error):
-                errorBlock(error)
+            case .failure(_):
+                completion(self?.realmManager.get(object: RealmGist.self) ?? [])
                 break
             case .success(let value):
+//                print(value)
                 self?.realmManager.save(array: value)
-                print(value.first?.owner?.toJSON())
-                successBlock(value)
+                completion(value)
             }
         }
    
