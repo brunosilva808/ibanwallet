@@ -22,8 +22,7 @@ class CustomCell: UITableViewCell, ModelPresenterCell {
     }()
     let labelTitle: UILabel = {
         let label = UILabel()
-        label.numberOfLines = 0
-        label.lineBreakMode = .byWordWrapping
+        label.numberOfLines = 1
         return label
     }()
     let labelDescription: UILabel = {
@@ -75,8 +74,9 @@ class CustomCell: UITableViewCell, ModelPresenterCell {
         constrain(imageIcon, self) { imageView, view in
             imageView.top == view.top + 10
             imageView.left == view.left + 16
-            imageView.width == 80
-            imageView.height == 80
+            imageView.bottom == view.bottom - 5 ~ LayoutPriority(rawValue: 250)
+            imageView.width == 40
+            imageView.height == 40
         }
         
         constrain(labelTitle, imageIcon, self) { label, imageView, view in
@@ -86,12 +86,12 @@ class CustomCell: UITableViewCell, ModelPresenterCell {
         }
         
         constrain(labelTitle, labelDescription, imageIcon, self) { title, description, imageView, view in
+            description.height >= 21
             description.top == title.bottom + 10
             description.left == imageView.right + 16
             description.right == view.right - 16
             description.bottom == view.bottom - 5
         }
-        
     }
 
 }
