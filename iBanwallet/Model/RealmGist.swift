@@ -1,5 +1,5 @@
 //
-//  Gist.swift
+//  RealmGist.swift
 //  iBanwallet
 //
 //  Created by Bruno Silva on 21/11/2018.
@@ -9,42 +9,7 @@ import Foundation
 import ObjectMapper
 import RealmSwift
 
-class GistDec: Decodable {
-    let forksUrl: String
-    let gitPullUrl: String
-    let htmlUrl: String
-    
-    enum CodingKeys: String, CodingKey {
-        case forksUrl = "forks_url"
-        case gitPullUrl = "git_pull_url"
-        case htmlUrl = "html_url"
-    }
-}
-
-class Gist1: Object, Mappable {
-    
-    // MARK: Properties
-    @objc dynamic var forksUrl: String?
-    @objc dynamic var id = 0
-    @objc dynamic var title = ""
-    @objc dynamic var autor = ""
-    @objc dynamic var genre = ""
-    
-    //Impl. of Mappable protocol
-    required convenience init?(map: Map) {
-        self.init()
-    }
-    
-    func mapping(map: Map) {
-        forksUrl    <- map["forks"]
-        id          <- map["id"]
-        title       <- map["title"]
-        autor       <- map["autor"]
-        genre       <- map["genre"]
-    }
-}
-
-class Gist: Object, Mappable {
+class RealmGist: Object, Mappable {
     
     // MARK: Declaration for string constants to be used to decode and also serialize.
     private struct SerializationKeys {
@@ -78,6 +43,7 @@ class Gist: Object, Mappable {
     @objc dynamic  var id: String?
     @objc dynamic  var createdAt: String?
     @objc dynamic  var comments: Int = 0
+    @objc dynamic  var owner: RealmOwner?
     @objc dynamic  var truncated: Bool = false
     @objc dynamic  var commentsUrl: String?
     @objc dynamic  var nodeId: String?
@@ -104,6 +70,7 @@ class Gist: Object, Mappable {
         descriptionValue <- map[SerializationKeys.descriptionValue]
         commitsUrl <- map[SerializationKeys.commitsUrl]
         id <- map[SerializationKeys.id]
+        owner <- map[SerializationKeys.owner]
         createdAt <- map[SerializationKeys.createdAt]
         comments <- map[SerializationKeys.comments]
         truncated <- map[SerializationKeys.truncated]
@@ -128,6 +95,7 @@ class Gist: Object, Mappable {
         if let value = id { dictionary[SerializationKeys.id] = value }
         if let value = createdAt { dictionary[SerializationKeys.createdAt] = value }
         dictionary[SerializationKeys.comments] = comments
+        if let value = owner { dictionary[SerializationKeys.owner] = value.dictionaryRepresentation() }
         dictionary[SerializationKeys.truncated] = truncated
         if let value = commentsUrl { dictionary[SerializationKeys.commentsUrl] = value }
         if let value = nodeId { dictionary[SerializationKeys.nodeId] = value }

@@ -18,22 +18,23 @@ class CustomCell: UITableViewCell, ModelPresenterCell {
         let label = UILabel()
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
-        label.text = "Testing 1 Testings 2 Testing 3 Testing 4 Testing 5 Testing 6 Testing 7 Testing 8"
         return label
     }()
     let labelDescription: UILabel = {
         var label = UILabel()
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
-        label.text = "XPTO 1 XPTO 2 XPTO 3 XPTO 4 XPTO 5 XPTO 6 XPTO 7 XPTO 8 XPTO 8 XPTO 8 XPTO 8 XPTO 8 XPTO 8 XPTO 8 XPTO 8 XPTO 8 XPTO 8 XPTO 8 XPTO 8 XPTO 8 XPTO 8 XPTO 8 XPTO 8 XPTO 8 XPTO 8 XPTO 8 XPTO 8 XPTO 8 XPTO 8 XPTO 8 XPTO 8 XPTO 8"
         return label
     }()
     
-    var model: Gist? {
+    var model: RealmGist? {
         didSet {
             guard let model = self.model else {
                 return
             }
+            
+            labelTitle.text = model.owner?.login
+            labelDescription.text = model.description
         }
     }
     

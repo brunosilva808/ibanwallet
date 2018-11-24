@@ -9,7 +9,7 @@ import UIKit
 
 class ViewController: UITableViewController {
 
-    var gists:[Gist] = []
+    var gists:[RealmGist] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,4 +47,5 @@ extension ViewController {
         let cell: CustomCell = tableView.reusableCell(for: indexPath, with: gists[indexPath.row])
         return cell
     }
+    
 }

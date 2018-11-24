@@ -11,8 +11,9 @@
 		3C042BA021A4BD2700B879B5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C042B9F21A4BD2700B879B5 /* ViewController.swift */; };
 		3C042BA521A4BD2900B879B5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C042BA421A4BD2900B879B5 /* Assets.xcassets */; };
 		3C09053421A76CF50078BE3A /* UITableView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C09053321A76CF40078BE3A /* UITableView+Extensions.swift */; };
-		3C28D40421A608A1007889E2 /* Gist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C28D40321A608A1007889E2 /* Gist.swift */; };
+		3C28D40421A608A1007889E2 /* RealmGist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C28D40321A608A1007889E2 /* RealmGist.swift */; };
 		3C28D40B21A612A5007889E2 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C28D40A21A612A5007889E2 /* APIClient.swift */; };
+		3C2B250321A96C5700445FAC /* RealmOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2B250221A96C5700445FAC /* RealmOwner.swift */; };
 		3CA3A39021A5F5C300CB84A4 /* APIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA3A38F21A5F5C300CB84A4 /* APIRouter.swift */; };
 		3CA3A39321A5F70100CB84A4 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA3A39221A5F70100CB84A4 /* APIConstants.swift */; };
 		3CA9859E21A613AF005CC035 /* APIClient+Gist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA9859D21A613AF005CC035 /* APIClient+Gist.swift */; };
@@ -51,8 +52,9 @@
 		3C042BA421A4BD2900B879B5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3C042BA921A4BD2900B879B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3C09053321A76CF40078BE3A /* UITableView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Extensions.swift"; sourceTree = "<group>"; };
-		3C28D40321A608A1007889E2 /* Gist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gist.swift; sourceTree = "<group>"; };
+		3C28D40321A608A1007889E2 /* RealmGist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmGist.swift; sourceTree = "<group>"; };
 		3C28D40A21A612A5007889E2 /* APIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		3C2B250221A96C5700445FAC /* RealmOwner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmOwner.swift; sourceTree = "<group>"; };
 		3CA3A38F21A5F5C300CB84A4 /* APIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRouter.swift; sourceTree = "<group>"; };
 		3CA3A39221A5F70100CB84A4 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
 		3CA9859D21A613AF005CC035 /* APIClient+Gist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "APIClient+Gist.swift"; sourceTree = "<group>"; };
@@ -134,7 +136,8 @@
 		3C28D40521A608AE007889E2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				3C28D40321A608A1007889E2 /* Gist.swift */,
+				3C28D40321A608A1007889E2 /* RealmGist.swift */,
+				3C2B250221A96C5700445FAC /* RealmOwner.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -389,7 +392,7 @@
 				7E770BB821A73C3E000939AA /* UINavigationBar+Extension.swift in Sources */,
 				7E770BB421A73C3E000939AA /* Date+Extensions.swift in Sources */,
 				7E770BC521A73C3E000939AA /* DateFormatter+Utils.swift in Sources */,
-				3C28D40421A608A1007889E2 /* Gist.swift in Sources */,
+				3C28D40421A608A1007889E2 /* RealmGist.swift in Sources */,
 				7E770BBE21A73C3E000939AA /* UIColor+Extensions.swift in Sources */,
 				7E770BB621A73C3E000939AA /* NSMutableAttributedString+Extensions.swift in Sources */,
 				3C09053421A76CF50078BE3A /* UITableView+Extensions.swift in Sources */,
@@ -405,6 +408,7 @@
 				7E770BC221A73C3E000939AA /* Double+Extension.swift in Sources */,
 				7E770BBC21A73C3E000939AA /* UITextField+Extensions.swift in Sources */,
 				7E770B9721A73A3B000939AA /* CustomCell.swift in Sources */,
+				3C2B250321A96C5700445FAC /* RealmOwner.swift in Sources */,
 				7E770BC321A73C3E000939AA /* NSLayoutConstraint+Extensions.swift in Sources */,
 				3C042B9E21A4BD2700B879B5 /* AppDelegate.swift in Sources */,
 			);
