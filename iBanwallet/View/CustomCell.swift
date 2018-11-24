@@ -7,11 +7,17 @@
 
 import UIKit
 import Cartography
+import Kingfisher
+
+protocol CustomCellProtocol {
+    func imageDownloadSucces(indexPath: IndexPath)
+}
 
 class CustomCell: UITableViewCell, ModelPresenterCell {
 
     let imageIcon: UIImageView = {
         var image = UIImageView(image: UIImage(named: "placeholder"))
+        image.contentMode = .scaleAspectFit
         return image
     }()
     let labelTitle: UILabel = {
@@ -27,6 +33,8 @@ class CustomCell: UITableViewCell, ModelPresenterCell {
         return label
     }()
     
+    var delegate: CustomCellProtocol?
+    var indexPath: IndexPath!
     var model: RealmGist? {
         didSet {
             guard let model = self.model else {
@@ -34,7 +42,14 @@ class CustomCell: UITableViewCell, ModelPresenterCell {
             }
             
             labelTitle.text = model.owner?.login
-            labelDescription.text = model.description
+            labelDescription.text = model.descriptionValue
+            if let urlString = model.owner?.avatarUrl {
+                imageIcon.kf.setImage(with: URL(string: urlString), placeholder: UIImage(named: "placeholder"), options: nil, progressBlock: nil) { [weak self] (image, _, _, _) in
+                    if let indexPath = self?.indexPath {
+                        self?.delegate?.imageDownloadSucces(indexPath: indexPath)
+                    }
+                }
+            }
         }
     }
     

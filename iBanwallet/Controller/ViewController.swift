@@ -21,7 +21,7 @@ class ViewController: UITableViewController {
     func setupTableView() {
         self.tableView.register(CustomCell.self)
         self.tableView.sectionHeaderHeight = UITableView.automaticDimension
-        self.tableView.estimatedRowHeight = 44.0
+        self.tableView.estimatedRowHeight = 250.0
     }
 
     func getGists() {
@@ -45,7 +45,16 @@ extension ViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: CustomCell = tableView.reusableCell(for: indexPath, with: gists[indexPath.row])
+        cell.indexPath = indexPath
         return cell
     }
     
+}
+
+extension ViewController: CustomCellProtocol {
+    func imageDownloadSucces(indexPath: IndexPath) {
+        self.tableView.beginUpdates()
+        self.tableView.reloadRows(at: [indexPath], with: .none)
+        self.tableView.endUpdates()
+    }
 }

@@ -1,15 +1,15 @@
 //
 //  RealmGist.swift
-//  iBanwallet
 //
-//  Created by Bruno Silva on 21/11/2018.
+//  Created by Bruno Silva on 24/11/2018
+//  Copyright (c) . All rights reserved.
 //
 
 import Foundation
 import ObjectMapper
 import RealmSwift
 
-class RealmGist: Object, Mappable {
+public class RealmGist: Object, Mappable {
     
     // MARK: Declaration for string constants to be used to decode and also serialize.
     private struct SerializationKeys {
@@ -20,7 +20,6 @@ class RealmGist: Object, Mappable {
         static let gitPushUrl = "git_push_url"
         static let descriptionValue = "description"
         static let commitsUrl = "commits_url"
-        static let files = "files"
         static let id = "id"
         static let createdAt = "created_at"
         static let comments = "comments"
@@ -33,35 +32,35 @@ class RealmGist: Object, Mappable {
     }
     
     // MARK: Properties
-    @objc dynamic  var forksUrl: String?
-    @objc dynamic  var gitPullUrl: String?
-    @objc dynamic  var htmlUrl: String?
-    @objc dynamic  var updatedAt: String?
-    @objc dynamic  var gitPushUrl: String?
-    @objc dynamic  var descriptionValue: String?
-    @objc dynamic  var commitsUrl: String?
-    @objc dynamic  var id: String?
-    @objc dynamic  var createdAt: String?
-    @objc dynamic  var comments: Int = 0
-    @objc dynamic  var owner: RealmOwner?
-    @objc dynamic  var truncated: Bool = false
-    @objc dynamic  var commentsUrl: String?
-    @objc dynamic  var nodeId: String?
-    @objc dynamic  var url: String?
-    @objc dynamic  var publicAttribute: Bool = false
+    public var forksUrl: String?
+    public var gitPullUrl: String?
+    public var htmlUrl: String?
+    public var updatedAt: String?
+    public var gitPushUrl: String?
+    public var descriptionValue: String?
+    public var commitsUrl: String?
+    public var id: String?
+    public var createdAt: String?
+    public var comments: Int?
+    public var owner: RealmOwner?
+    public var truncated: Bool? = false
+    public var commentsUrl: String?
+    public var nodeId: String?
+    public var url: String?
+    public var publicAttribute: Bool? = false
     
     // MARK: ObjectMapper Initializers
     /// Map a JSON object to this class using ObjectMapper.
     ///
     /// - parameter map: A mapping from ObjectMapper.
-    required convenience init?(map: Map) {
+    required public convenience init?(map: Map){
         self.init()
     }
     
     /// Map a JSON object to this class using ObjectMapper.
     ///
     /// - parameter map: A mapping from ObjectMapper.
-    func mapping(map: Map) {
+    public func mapping(map: Map) {
         forksUrl <- map[SerializationKeys.forksUrl]
         gitPullUrl <- map[SerializationKeys.gitPullUrl]
         htmlUrl <- map[SerializationKeys.htmlUrl]
@@ -70,9 +69,9 @@ class RealmGist: Object, Mappable {
         descriptionValue <- map[SerializationKeys.descriptionValue]
         commitsUrl <- map[SerializationKeys.commitsUrl]
         id <- map[SerializationKeys.id]
-        owner <- map[SerializationKeys.owner]
         createdAt <- map[SerializationKeys.createdAt]
         comments <- map[SerializationKeys.comments]
+        owner <- map[SerializationKeys.owner]
         truncated <- map[SerializationKeys.truncated]
         commentsUrl <- map[SerializationKeys.commentsUrl]
         nodeId <- map[SerializationKeys.nodeId]
@@ -94,7 +93,7 @@ class RealmGist: Object, Mappable {
         if let value = commitsUrl { dictionary[SerializationKeys.commitsUrl] = value }
         if let value = id { dictionary[SerializationKeys.id] = value }
         if let value = createdAt { dictionary[SerializationKeys.createdAt] = value }
-        dictionary[SerializationKeys.comments] = comments
+        if let value = comments { dictionary[SerializationKeys.comments] = value }
         if let value = owner { dictionary[SerializationKeys.owner] = value.dictionaryRepresentation() }
         dictionary[SerializationKeys.truncated] = truncated
         if let value = commentsUrl { dictionary[SerializationKeys.commentsUrl] = value }

@@ -1,5 +1,5 @@
 //
-//  RealmOwner.swift
+//  Owner.swift
 //
 //  Created by Bruno Silva on 24/11/2018
 //  Copyright (c) . All rights reserved.
@@ -9,7 +9,7 @@ import Foundation
 import ObjectMapper
 import RealmSwift
 
-class RealmOwner: Object, Mappable {
+public class RealmOwner: Object, Mappable {
     
     // MARK: Declaration for string constants to be used to decode and also serialize.
     private struct SerializationKeys {
@@ -57,7 +57,7 @@ class RealmOwner: Object, Mappable {
     /// Map a JSON object to this class using ObjectMapper.
     ///
     /// - parameter map: A mapping from ObjectMapper.
-    required convenience init?(map: Map) {
+    required public convenience init?(map: Map){
         self.init()
     }
     
