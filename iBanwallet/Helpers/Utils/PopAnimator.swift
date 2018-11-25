@@ -2,7 +2,7 @@
 //  PopAnimator.swift
 //  iBanwallet
 //
-//  Created by Carbon on 25/11/2018.
+//  Created by Bruno Silva on 25/11/2018.
 //
 
 import UIKit
