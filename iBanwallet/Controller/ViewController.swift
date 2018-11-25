@@ -12,6 +12,8 @@ class ViewController: UITableViewController {
     private var finishedLoadingInitialTableCells = false
     private var gists:[RealmGist] = []
     private var detailViewController: DetailViewController!
+    let transition = PopAnimator()
+    var indexPath: IndexPath!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,9 +80,42 @@ extension ViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        self.indexPath = indexPath
+        
         detailViewController = DetailViewController()
         detailViewController.gist = self.gists[indexPath.row]
+        detailViewController.transitioningDelegate = self
         present(detailViewController, animated: true, completion: nil)
     }
+    
+}
+
+extension ViewController: UIViewControllerTransitioningDelegate {
+    
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        
+//        transition.originFrame =
+//            selectedImage!.superview!.convert(selectedImage!.frame, to: nil)
+        
+        transition.presenting = true
+//        selectedImage!.isHidden = true
+
+        let rectOfCellInTableView = tableView.rectForRow(at: self.indexPath)
+        let rectOfCellInSuperview = tableView.convert(rectOfCellInTableView, to: tableView.superview)
+        
+        transition.originFrame = rectOfCellInSuperview
+        
+//        print("Y of Cell is: \(rectOfCellInSuperview.origin.y)")
+        
+        return transition
+    }
+
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        transition.presenting = false
+        return transition
+
+    }
+    
     
 }
