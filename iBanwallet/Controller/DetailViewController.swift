@@ -23,6 +23,10 @@ class DetailViewController: UIViewController {
         label.lineBreakMode = .byWordWrapping
         return label
     }()
+    let labelType: UILabel = {
+        let label = UILabel()
+        return label
+    }()
     let imageIcon: UIImageView = {
         var image = UIImageView()
         image.isUserInteractionEnabled = false
@@ -46,14 +50,16 @@ class DetailViewController: UIViewController {
             labelTitle.text = "Login: \(login)"
         }
 
-        if let description = gist.owner?.description {
+        if let description = gist.descriptionValue {
             labelDescription.text = "Description: \(description)"
+        }
+
+        if let type = gist.owner?.type {
+            labelType.text = "Type: \(type)"
         }
         
         if let urlString = gist?.owner?.avatarUrl {
-            imageIcon.kf.setImage(with: URL(string: urlString), placeholder: Image(named: "placeholder"), options: nil, progressBlock: nil) { [weak self] (_, _, _, _) in
-                self?.imageIcon.setRounded(toRadius: 5)
-            }
+            imageIcon.kf.setImage(with: URL(string: urlString))
         }
     }
     
@@ -61,24 +67,36 @@ class DetailViewController: UIViewController {
         view.backgroundColor = .white
         view.addSubview(labelTitle)
         view.addSubview(labelDescription)
+        view.addSubview(labelType)
         view.addSubview(imageIcon)
     }
     
     func setupConstraints() {
+        
+        let margin:CGFloat = 16
+        
         constrain(labelTitle, self.view) { label, view in
-            label.top == view.top + 16
-            label.left == view.left + 16
-            label.right == view.right + 16
+            label.top == view.top + margin
+            label.left == view.left + margin
+            label.right == view.right + margin
         }
 
-        constrain(labelDescription, labelTitle, self.view) { title, description, view in
-            description.top == title.bottom + 16
-            description.left == view.left + 16
-            description.right == view.right + 16
+        constrain(labelDescription, labelTitle, self.view) { description, title, view in
+            description.top == title.bottom + margin
+            description.left == view.left + margin
+            description.right == view.right + margin
         }
         
-        constrain(imageIcon, self.view) { image, view in
-            image.edges == view.edges
+        constrain(labelType, labelDescription, self.view) { type, description, view in
+            type.top == description.bottom + margin
+            type.left == view.left + margin
+            type.right == view.right + margin
+        }
+        
+        constrain(labelType, imageIcon, self.view) { type, image, view in
+            image.top == type.bottom + margin
+            image.left == view.left + margin
+            image.right == view.right + margin
         }
     }
 
