@@ -8,6 +8,7 @@
 import UIKit
 import Cartography
 import Kingfisher
+import SkeletonView
 
 class CustomCell: UITableViewCell, ModelPresenterCell {
 
@@ -33,6 +34,8 @@ class CustomCell: UITableViewCell, ModelPresenterCell {
                 return
             }
             
+            hideAnimation()
+            
             labelTitle.text = model.owner?.login
             labelDescription.text = model.descriptionValue
             if let urlString = model.owner?.avatarUrl {
@@ -53,6 +56,19 @@ class CustomCell: UITableViewCell, ModelPresenterCell {
         
         setupViews()
         setupConstraints()
+        showAnimation()
+    }
+    
+    func showAnimation() {
+        [imageIcon, labelTitle, labelDescription].forEach {
+            $0.showSkeleton(usingColor: .black)
+        }
+    }
+    
+    func hideAnimation() {
+        [imageIcon, labelTitle, labelDescription].forEach {
+            $0.hideSkeleton()
+        }
     }
     
     func setupViews() {
