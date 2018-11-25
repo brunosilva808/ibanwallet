@@ -42,7 +42,6 @@ class CustomCell: UITableViewCell, ModelPresenterCell {
                 imageIcon.kf.setImage(with: URL(string: urlString), placeholder: Image(named: "placeholder"), options: nil, progressBlock: nil) { [weak self] (_, _, _, _) in
                     self?.imageIcon.setRounded(toRadius: 5)
                 }
-                
             }
         }
     }
