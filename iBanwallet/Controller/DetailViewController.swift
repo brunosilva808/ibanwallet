@@ -31,6 +31,7 @@ class DetailViewController: UIViewController {
         var image = UIImageView()
         image.isUserInteractionEnabled = false
         image.contentMode = .scaleAspectFit
+        image.clipsToBounds = true
         return image
     }()
     
@@ -78,25 +79,24 @@ class DetailViewController: UIViewController {
         constrain(labelTitle, self.view) { label, view in
             label.top == view.top + margin
             label.left == view.left + margin
-            label.right == view.right + margin
+            label.right == view.right - margin
         }
 
-        constrain(labelDescription, labelTitle, self.view) { description, title, view in
+        constrain(labelDescription, labelTitle) { description, title in
             description.top == title.bottom + margin
-            description.left == view.left + margin
-            description.right == view.right + margin
         }
         
-        constrain(labelType, labelDescription, self.view) { type, description, view in
+        constrain(labelType, labelDescription) { type, description in
             type.top == description.bottom + margin
-            type.left == view.left + margin
-            type.right == view.right + margin
         }
         
-        constrain(labelType, imageIcon, self.view) { type, image, view in
-            image.top == type.bottom + margin
-            image.left == view.left + margin
-            image.right == view.right + margin
+        constrain(labelType, imageIcon) { type, image in
+            image.top == type.bottom
+        }
+        
+        constrain(labelTitle, labelDescription, labelType, imageIcon) { title, description, type, image in
+            align(left: title, description, type, image)
+            align(right: title, description, type, image)
         }
     }
 
