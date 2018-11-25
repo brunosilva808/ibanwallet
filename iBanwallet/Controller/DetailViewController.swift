@@ -7,9 +7,12 @@
 
 import UIKit
 import Cartography
+import Kingfisher
 
 class DetailViewController: UIViewController {
 
+    var gist: RealmGist!
+    let tapGesture = UITapGestureRecognizer(target: self, action: #selector(viewTouched))
     let imageIcon: UIImageView = {
         var image = UIImageView()
         image.contentMode = .scaleAspectFit
@@ -19,21 +22,26 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setupConstraints()
+        setupUI()
     }
     
-//    func setupConstraints() {
-//        
-//        let marginLeftRight:CGFloat = 16
-//        let marginTopBottom:CGFloat = 10
-//        
-//        constrain(imageIcon, self) { imageView, view in
-//            imageView.top == view.top + marginTopBottom
-//            imageView.left == view.left + marginLeftRight
-//            imageView.bottom == view.bottom - marginTopBottom / 2 ~ LayoutPriority(rawValue: 250)
-//            imageView.width == 40
-//            imageView.height == 40
-//        }
-//    }
+    func setupUI() {
+        view.addGestureRecognizer(tapGesture)
+        view.backgroundColor = .white
+        view.addSubview(imageIcon)
+        if let urlString = gist?.owner?.avatarUrl {
+            imageIcon.kf.setImage(with: URL(string: urlString))
+        }
+        
+        constrain(imageIcon, self.view) { image, view in
+            image.edges == view.edges
+        }
+    }
 
+}
+
+extension DetailViewController {
+    @objc func viewTouched() {
+        dismiss(animated: true, completion: nil)
+    }
 }
