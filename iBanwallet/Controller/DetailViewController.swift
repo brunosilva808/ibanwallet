@@ -74,30 +74,34 @@ class DetailViewController: UIViewController {
     
     func setupConstraints() {
         
-        let margin:CGFloat = 16
+        let marginLeftRight:CGFloat = 16
+        let marginTop:CGFloat = 20
         
-        constrain(labelTitle, self.view) { label, view in
-            label.top == view.top + margin
-            label.left == view.left + margin
-            label.right == view.right - margin
+        constrain(imageIcon, self.view) { image, view in
+            image.top == view.top + marginLeftRight + marginTop
+            image.left == view.left + marginLeftRight
+            image.width == 40
+            image.height == 40
         }
 
-        constrain(labelDescription, labelTitle) { description, title in
-            description.top == title.bottom + margin
+        constrain(labelTitle, imageIcon, self.view) { title, image, view in
+            title.top == view.top + marginLeftRight + marginTop
+            title.left == image.right + marginLeftRight
+            title.right == view.right - marginLeftRight
+        }
+
+        constrain(labelTitle, labelDescription, imageIcon, self.view) { title, description, image, view in
+            description.top == title.bottom + marginLeftRight
+            align(left: description, title)
+            align(right: description, title)
+        }
+
+        constrain(labelType, labelDescription, labelTitle, self.view) { type, description, title, view in
+            type.top == description.bottom + marginLeftRight
+            align(left: type, title)
+            align(right: type, title)
         }
         
-        constrain(labelType, labelDescription) { type, description in
-            type.top == description.bottom + margin
-        }
-        
-        constrain(labelType, imageIcon) { type, image in
-            image.top == type.bottom
-        }
-        
-        constrain(labelTitle, labelDescription, labelType, imageIcon) { title, description, type, image in
-            align(left: title, description, type, image)
-            align(right: title, description, type, image)
-        }
     }
 
 }

@@ -150,7 +150,6 @@
 			isa = PBXGroup;
 			children = (
 				7E770BCE21A7403B000939AA /* PersistanceManager.swift */,
-				3C841F3121AB1FC200C15DA0 /* PopAnimator.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -242,6 +241,7 @@
 		7E770BCD21A73CF8000939AA /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				3C841F3121AB1FC200C15DA0 /* PopAnimator.swift */,
 				7E770BCB21A73CF5000939AA /* Theme.swift */,
 			);
 			path = Utils;

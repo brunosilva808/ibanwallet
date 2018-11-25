@@ -50,7 +50,7 @@ class PopAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         containerView.bringSubviewToFront(detailsView)
         
         UIView.animate(withDuration: duration, delay:0.0,
-                       usingSpringWithDamping: 0.4, initialSpringVelocity: 0.0,
+                       usingSpringWithDamping: 0.6, initialSpringVelocity: 0.0,
                        animations: {
                         detailsView.transform = self.presenting ?
                             CGAffineTransform.identity : scaleTransform
